@@ -1,0 +1,10 @@
+*.DS_Store
+
+# eclipse
+.project
+.buildpath
+.settings
+
+.htaccess
+
+*.sass-cache

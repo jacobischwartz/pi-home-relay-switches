@@ -23,6 +23,9 @@ if(isset($_REQUEST['sequence'])) {
 }
 
 $pace_seconds = 0.5;
+if(isset($_REQUEST['pace']) && (floatval($_REQUEST['pace']) > 0.1)) {
+  $pace_seconds = floatval($_REQUEST['pace']);
+}
 
 foreach($pins as $pin) {
   system( "gpio -g mode " . $pin . " out" );

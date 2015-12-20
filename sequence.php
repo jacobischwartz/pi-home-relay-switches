@@ -7,6 +7,10 @@ if(function_exists('apc_fetch')) {
 
 try {
 
+  if(function_exists('apc_store')) {
+    apc_store('light_sequence_blocked', time());
+  }
+
   /**
    * Pin positions on the Pi that control circuits.
    */
@@ -59,6 +63,6 @@ try {
   echo 'Error on line ' . $e->getLine() . ': ' . $e->getMessage();
 }
 
-if(function_exists('apc_store')) {
-  apc_store('light_sequence_blocked', FALSE);
+if(function_exists('apc_delete')) {
+  apc_delete('light_sequence_blocked');
 }
